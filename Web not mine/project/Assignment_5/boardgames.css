@@ -1,0 +1,175 @@
+/* BOARDGAMES DAY PAGE*/
+
+/*EVENTS ABOUT */
+.events-detail-container 
+{
+    display: flex;
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.detail-image 
+{
+    width: 35%;
+    min-width: 300px;
+    margin-bottom: 20px;
+}
+
+.detail-right 
+{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    min-width: 200px;
+}
+
+.detail-calendar 
+{
+    width: auto;
+    height: 40px;
+    background-color: #E4E9EC;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-align: right;
+    color: #1C1C1C;
+    font-weight: 600;
+    font-size:18px;
+}
+
+
+/* DICE BOARDGAME LISTS */
+
+.boardgames-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.boardgame-card {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    padding: 40px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #B4B6B9;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+    text-align: left;
+}
+
+.boardgame-card:hover {
+    transform: translateY(-30px);
+    box-shadow: 0 15px 15px #1C1C1C;
+}
+
+.boardgame-image {
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+.boardgame-title {
+    height: fit-content;
+    display: flex;
+    align-content: flex-start;
+    justify-content: flex-start;
+    color: #1C1C1C;
+    line-height: 1.2;
+}
+
+.boardgame.content {
+    display: flex;
+    align-self: flex-end;
+    flex-grow: 8;
+    flex-direction: column;
+    justify-self: flex-end;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+.boardgame-category {
+    display: inline-block;
+    background-color: #E4E9EC;
+    color: #1C1C1C;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin: 20px 0;
+}
+
+.boardgame-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+}
+
+.boardgame-action-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #272727;
+    border-radius: 5px;
+    padding: 8px 20px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #E4E9EC;
+}
+
+.boardgame-action-button .dice-idle {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.boardgame-action-button .dice-hover {
+    display: none;
+}
+
+.boardgame-action-button:hover {
+    background-color: #E4E9EC;
+    color: #272727;
+}
+
+.boardgame-action-button:hover .dice-idle {
+    display: none;
+}
+
+.boardgame-action-button:hover .dice-hover {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.returning
+{
+    text-decoration:none;
+    padding: 12px; 
+    border: none;
+    color: #B4B6B9;
+    font-size: 20px;
+    font-family: "Josefin Sans";
+    font-weight: 600;
+}
+.returning:hover
+{
+    text-decoration:underline;
+    color: #E4E9EC;
+}

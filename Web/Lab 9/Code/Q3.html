@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>JavaScript</title>
+
+<style>
+
+span {color:red }
+
+</style>
+
+<script type="text/javascript">
+
+function menu()
+{
+	let food_name,drinks_name,food_price=0,drinks_price=0
+	food_name = document.menufrm.food.value
+	drinks_name = document.menufrm.drinks.value
+	switch(food_name){
+		case "Noodles":
+			food_price = 5.00
+			break
+		case "Nasi Lemak": 
+			food_price = 4.00
+			break
+		case "Chicken Rice":
+			food_price = 8.00
+			break
+		default:
+			break
+	}
+	switch(food_drinks){
+		case "Iced Coffee":
+			drinks_price = 5.00
+			break
+		case "Hot Milo": 
+			drinks_price = 4.00
+			break
+		case "Lemon Tea":
+			drinks_price = 8.00
+			break
+		default:
+			break
+	}
+	document.getElementById("food_price").innerHTML = food_price.toFixed(2)
+	document.getElementById("drinks_price").innerHTML = drinks_price.toFixed(2)
+	if(food_price==0 && drinks_price==0){
+		document.getElementById("err").innerHTML = "No options chosen"
+	}
+	else{
+		document.getElementById("total").innerHTML 
+	}
+}
+
+
+</script>
+
+</head>
+
+<body>
+
+<form name="menufrm">
+
+	<p>Food : 	<select name = "food" onchange="menu();">
+					<option value="Null">Nothing</option>
+					<option value="Noodles">Noodles</option>
+					<option value="Nasi Lemak">Nasi Lemak</option>
+					<option value="Chicken Rice">Chicken Rice</option>
+				</select>
+				<span id="food_price">0.00</span>
+				
+	<p>Drinks : 	<select name = "drinks" onchange="menu();">
+					<option value="Null">Nothing</option>
+					<option value="Iced Coffee">Iced Coffee</option>
+					<option value="Hot Milo">Hot Milo</option>
+					<option value="Lemon Tea">Lemon Tea</option>
+				</select>
+				<span id="drinks_price" style="font-size:0.8em; color:red">0.00</span>
+				
+	<p id="total">0.00</p>
+	<span id="err" style="font-size:0.8em; color:red"></span>
+
+</form>
+
+
+
+</body>
+
+</html>

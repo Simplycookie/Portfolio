@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>JS FORMS</title>
+ 
+<script type="text/javascript">
+let qty,product_name,product_price,product_code,error_detacted
+function check()
+{
+	qty = parseInt(document.orderfrm.qty.value)
+	product_code = parseInt(document.orderfrm.product_code.value)
+	error_detacted = ""
+	if(qty < 1){
+		error_detacted += "No quantity selected <br>"
+	}
+	switch(product_code){
+		case 1:
+			product_price = 1.50
+			product_name = "Pen"
+			break
+		case 2:
+			product_price = 0.30
+			product_name = "Eraser"
+			break
+		case 3:
+			product_price = 3.00
+			product_name = "Ruler"
+			break
+		default:
+			error_detacted += "Please choose an item"
+			break
+	}
+	document.getElementById("bill").innerHTML = ""
+	if(error_detacted == ""){
+		get_bill(qty,product_name,product_price)
+		
+	}
+	document.getElementById("price-display").innerHTML = error_detacted
+	
+}
+
+function get_bill(qty, product_name, product_price)
+{
+	document.getElementById("bill").innerHTML = "Product : " +  product_name + "<br>Price : RM" + product_price + "<br>Bill : RM" + qty*product_price
+}
+
+
+
+</script> 
+
+
+
+</head>
+
+<body>
+
+<form name = "orderfrm" >
+
+	<p>Quantity : 	<input type="text" name="qty" size="10" value="0"/>
+	<br><span id="qty-display">&nbsp;</span>
+	</p>	
+	
+	<p>Operation : 	<select name="product_code" >
+						<option value="0">Choose an item</option>
+						<option value="1">Pen</option>
+						<option value="2">Eraser</option>
+						<option value="3">Ruler</option>
+					</select>
+		<br><span id="price-display" style="font-size:0.8em; color:red">&nbsp;</span>
+	</p>
+
+	<p><input type="button" value="Get Bill" name="calcbtn" onclick = "check()" /></p>
+	
+</form>
+
+<p id="bill">&nbsp;</p>
+
+</body>
+
+</html>

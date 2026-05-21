@@ -1,0 +1,241 @@
+.review-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.review-form-container {
+    background: linear-gradient(145deg, #272727, #1C1C1C);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.rating-section {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+}
+
+.rating-category {
+    margin-bottom: 25px;
+}
+
+.category-title {
+    display: block;
+    color: #FAFDFF;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 2rem;
+    color: #B4B6B9;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.star-rating label:hover,
+.star-rating label:hover~label,
+.star-rating input:checked~label {
+    color: #FFD700;
+}
+
+.rating-labels {
+    display: flex;
+    justify-content: space-between;
+    color: #B4B6B9;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.overall-rating {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.overall-stars {
+    font-size: 2.5rem;
+    color: #FFD700;
+}
+
+.overall-score {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FAFDFF;
+}
+
+textarea#reviewContent {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.photo-upload-section {
+    margin: 30px 0;
+}
+
+.upload-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.upload-container:hover {
+    border-color: #B4B6B9;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    color: #FAFDFF;
+    margin-bottom: 10px;
+}
+
+.photo-preview {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.photo-item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.remove-photo {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.review-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.btn-cancel {
+    padding: 12px 25px;
+    background: transparent;
+    border: 1px solid #B4B6B9;
+    color: #B4B6B9;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.btn-submit-review {
+    padding: 12px 35px;
+    background: linear-gradient(145deg, #B4B6B9, #a6a8ab);
+    border: none;
+    color: #272727;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.existing-reviews {
+    margin-top: 50px;
+}
+
+.reviews-header h2 {
+    color: #FAFDFF;
+}
+
+.review-item {
+    background: linear-gradient(145deg, #272727, #1C1C1C);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.reviewer-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #B4B6B9;
+    color: #272727;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.review-rating {
+    color: #FFD700;
+    font-size: 1.2rem;
+}
+
+.review-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FAFDFF;
+    margin-bottom: 10px;
+}
+
+.review-content {
+    color: #B4B6B9;
+    line-height: 1.6;
+}
+
+.review-photos {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.review-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+}

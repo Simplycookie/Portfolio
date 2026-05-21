@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head><title>Lab 8</title>
+
+<script>
+function get_input()
+{
+	let va
+	va = document.convertfrm.unittxt.value
+	alert("banana")
+	alert(va)
+	if(va=="A"){
+
+	}
+	else if(va=="B"){
+		alert("va = B")
+	}
+}
+function convert_kilogram(grams)
+{
+	
+}
+function convert_pound(grams)
+{
+	
+}
+
+</script>
+
+</head>
+
+<body>
+
+<form name="convertfrm">
+	<p>Enter a value in grams : <input type="text" name="gramtxt" />
+	<p>Convert to :
+		<select name="unittxt">
+			<option value="A">Kilogram</option>
+			<option value="B">Pound</option>
+		</select>
+	</p>
+	<p><input type="button" name="convertbtn" value="Convert Now" onclick="get_input();" />
+</form>
+<p id="result"></p>
+</body>
+
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DICE Club - Website Login</title>
+    <link rel="stylesheet" href="global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Texturina:wght@700&family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (小眼睛图标) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== 登录卡片 – 严格遵循 Website Sign In.png ===== */
+        
+        .login-container {
+            max-width: 550px;
+            margin: 40px auto;
+            padding: 40px 35px;
+            background: #E4E9EC;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        
+        .login-container h1 {
+            font-family: 'Texturina', serif;
+            font-size: 2.4rem;
+            color: #1C1C1C;
+            text-align: center;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .login-description {
+            color: #3a3a3a;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #B4B6B9;
+        }
+        
+        .section-title {
+            font-family: 'Texturina', serif;
+            font-size: 1.4rem;
+            color: #1C1C1C;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            color: #1C1C1C;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px 14px;
+            background: #FAFDFF;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: #1C1C1C;
+            transition: 0.2s;
+            box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #272727;
+            box-shadow: 0 0 0 3px rgba(39, 39, 39, 0.1), inset 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group input::placeholder {
+            color: #8a8a8a;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        /* ----- 密码小眼睛（与注册页一致，适配浅色背景）----- */
+        
+        .password-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .password-wrapper input {
+            width: 100%;
+            padding-right: 45px;
+        }
+        
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #272727;
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+        
+        .password-toggle:hover {
+            color: #000;
+        }
+        
+        .password-toggle i {
+            pointer-events: none;
+        }
+        
+        .btn-signin {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(145deg, #272727, #1C1C1C);
+            color: #FAFDFF;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Texturina', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .btn-signin:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.8rem;
+            margin-top: 6px;
+        }
+        
+        @media (max-width: 600px) {
+            .login-container {
+                max-width: 100%;
+                margin: 20px;
+                padding: 30px 20px;
+            }
+            .login-container h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">D.I.C.E.</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <div id="authStateButton"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="login-container">
+        <h1>Website Login</h1>
+        <div class="login-description">
+            Welcome to our D.I.C.E. Club website! Please sign in to manage your bookings, and explore exclusive events. If you don't have an account yet, sign up now !
+
+            <h2 class="section-title">Personal Information</h2>
+
+            <form id="loginForm">
+                <!-- Full Name (无小眼睛) -->
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="John Doe">
+                    <div class="error-message" id="nameError"></div>
+                </div>
+
+                <!-- Email Address (无小眼睛) -->
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="johndoe@gmail.com">
+                    <div class="error-message" id="emailError"></div>
+                </div>
+
+                <!-- Password + 小眼睛 -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" name="password" placeholder="8 alphanumerical characters">
+                        <button type="button" class="password-toggle" data-target="password">
+                        <i class="fa-regular fa-eye-slash"></i>
+                    </button>
+                    </div>
+                    <div class="error-message" id="passwordError"></div>
+                </div>
+
+                <div class="error-message" id="formError"></div>
+
+                <button type="submit" class="btn-signin">Sign-In</button>
+            </form>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 D.I.C.E. MMU | Dive into Imagination for Creative Entertainment</p>
+        <div class="social-links">
+            <a href="#">Instagram</a> |
+            <a href="#">Discord</a> |
+            <a href="#">Email</a>
+        </div>
+    </footer>
+
+    <!-- ========== 密码可见性切换 + 登录验证 ========== -->
+    <script>
+        (function() {
+            "use strict";
+
+            // ----- 小眼睛切换（独立函数，保证登录页可用）-----
+            function initPasswordToggle() {
+                const toggles = document.querySelectorAll('.password-toggle');
+                toggles.forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('data-target');
+                        const input = document.getElementById(targetId);
+                        if (!input) return;
+                        const icon = this.querySelector('i');
+                        const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                        input.setAttribute('type', type);
+                        if (icon) {
+                            if (type === 'text') {
+                                icon.classList.remove('fa-eye-slash');
+                                icon.classList.add('fa-eye');
+                            } else {
+                                icon.classList.remove('fa-eye');
+                                icon.classList.add('fa-eye-slash');
+                            }
+                        }
+                    });
+                });
+            }
+
+            // ----- 邮箱验证 -----
+            function isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+
+            function clearErrors() {
+                document.querySelectorAll('.error-message').forEach(el => el.innerHTML = '');
+            }
+
+            function showError(fieldId, message) {
+                const el = document.getElementById(fieldId);
+                if (el) el.innerHTML = message;
+            }
+
+            // ----- 表单提交 -----
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const email = document.getElementById('email').value.trim();
+                    const password = document.getElementById('password').value;
+
+                    clearErrors();
+
+                    let isValid = true;
+
+                    if (!email) {
+                        showError('emailError', 'Email address is required');
+                        isValid = false;
+                    } else if (!isValidEmail(email)) {
+                        showError('emailError', 'Please enter a valid email address');
+                        isValid = false;
+                    }
+
+                    if (!password) {
+                        showError('passwordError', 'Password is required');
+                        isValid = false;
+                    }
+
+                    if (!isValid) return;
+
+                    const users = JSON.parse(localStorage.getItem('users') || '[]');
+                    const matchedUser = users.find(user => user.email === email && user.password === password);
+
+                    if (matchedUser) {
+                        localStorage.setItem('currentUser', JSON.stringify({
+                            fullName: matchedUser.fullName,
+                            email: matchedUser.email,
+                            id: matchedUser.id
+                        }));
+
+                        alert('Login successful! Redirecting to homepage...');
+                        window.location.href = 'index.html';
+                    } else {
+                        showError('formError', 'Invalid email or password.');
+                    }
+                });
+            }
+
+            // 初始化小眼睛
+            initPasswordToggle();
+        })();
+    </script>
+
+    <script src="auth-state.js"></script>
+</body>
+
+</html>

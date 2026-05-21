@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <meta charset="UTF-8">
+    <title>Add New Product Details</title>
+    <body>
+        <Form action="new Product">
+            <fieldset>
+                <legend>Product Details</legend>
+                <p>Product Name :<br> <input type="text" name="Product_name" size="50" maxlength="45"></p>
+                <p>Product Code : <input type="text" name="Product_code" size="20" maxlength="15"></p>
+                <p>Available Sizes : 
+                    <input type="checkbox" name="SmallCBox" value="Small">Small
+                    <input type="checkbox" name="MediumCbox" value="Medium">Medium
+                    <input type="checkbox" name="LargeCBox" value="Large">Large
+                </p>
+                <p>Colour : <input type="color" name="color" value="#123ABC"></p>
+                <p>Stock : <input type="number" name="Stockcount" min="10" max="120"></p>
+                <p>Re-order Level: <input type="range" min="0" max="100" value="50" name="Re-order_Level"></p>
+                <p>Product Image : <input type="file" name="imagegiven" multiple></p>
+            </fieldset>
+            <p><input type="submit" name="savebin" value="Save Product"></p>
+        </Form>
+    </body>
+</html>

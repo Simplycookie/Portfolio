@@ -1,0 +1,678 @@
+/* ========== GLOBAL STYLES ========== */
+
+*
+{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scrollbar-color: #272727 #0a0a0a;
+}
+
+body
+{
+    margin: 0;
+    padding-top: 57px;
+    font-family: 'Josefin Sans', sans-serif;
+    background: #141414; 
+    color: #E4E9EC;
+}
+
+
+/* NAVIGATION BAR */
+
+.navbar 
+{
+    background: #1C1C1C;
+    border-bottom: 2px solid #272727;
+    padding: 8px 30px;
+    font-family: 'Josefin Sans';
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-container 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo 
+{
+    font-family: 'Texturina', serif;
+    font-size: 1.6rem;
+    color: #E4E9EC;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.nav-links 
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav-links p
+{
+    color: #B4B6B9;
+    margin-block: 0;
+    margin-left: 25px;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.nav-links a:not(.auth-btn) 
+{
+    color: #B4B6B9;
+    margin-left: 25px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+.nav-links a:not(.auth-btn):hover 
+{
+    color: #FAFDFF;
+}
+
+.box /*Black 2 box*/
+{
+    padding: 40px 0 40px 0;
+    margin-bottom: 15px;
+    background-color: #272727;
+    color: #FAFDFF;
+}
+
+/* HEADERS */
+
+.subhead1
+{
+    font-family: "Texturina";
+    font-weight: 600;
+    font-size: 50px;
+    margin: 0 0 40px 0;
+}
+
+.subhead2
+{
+    font-family: "Texturina";
+    font-weight: 600;
+    font-size: 50px;
+    margin: 0;
+    text-align: center;
+}
+
+.subhead3
+{
+    font-family: "Texturina";
+    font-weight: 600;
+    font-size: 50px;
+    text-align: center;
+    margin: 0 0 80px 0;
+}
+
+.categorytitle /*For categories*/
+{
+    font-family: "Texturina";
+    font-weight: 600;
+    font-size: 45px;
+    margin: 0;
+    margin-top: 15px;
+    padding-top: 120px;
+    padding-bottom: 100px;
+    text-align: center;
+    color: #FAFDFF;
+}
+
+h3 /*Card titles*/
+{
+    font-family: "Texturina";
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.s1
+{
+    font-family: "Josefin Sans";
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.s2
+{
+    font-family: "Josefin Sans";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+#dice-banner {
+    display: flex;
+    margin: 0;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+}
+
+#dice-banner img {
+    height: 540px;
+    width: auto;
+}
+
+/* BIG BUTTONS */
+
+.options-button
+{
+    margin-bottom: 15px;
+    background-color: #272727;
+    color: #FAFDFF;
+    height: 350px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+}
+
+.options-button h1
+{
+    font-family: "Texturina";
+    font-weight: 700;
+    font-size: 40px;
+    margin: 0;
+    text-align: center;
+}
+
+.options-button p
+{
+    font-family: "Josefin Sans";
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* FOOTER SECTION */
+#footer 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 50px;
+    background-color: #272727;
+    color: #FAFDFF;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo
+{
+    width: 40%;
+    height: auto;
+}
+
+.footer-logo img 
+{
+    width: 200px;
+    height: auto;
+}
+
+#footer table 
+{
+    margin: 0;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+#footer th 
+{
+    font-family: "Josefin Sans";
+    font-weight: 600;
+    font-size: 30px;
+    width: 250px;
+    padding-bottom: 20px;
+}
+
+#footer td 
+{
+    vertical-align: top;
+    font-family: "Josefin Sans";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+#footer a 
+{
+    text-decoration: none;
+    color: #B4B6B9;
+}
+
+#footer ul 
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#footer li 
+{
+    padding-bottom: 20px;
+}
+
+
+/* ----- 认证按钮 / 头像下拉菜单 ----- */
+
+.auth-btn {
+    margin-left: 25px;
+    font-size: 1rem;
+    color: #B4B6B9;
+    text-decoration: none;
+    font-family: "Texturina";
+}
+
+.avatar-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.avatar-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #B4B6B9, #a6a8ab);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #272727;
+    transition: transform 0.3s;
+}
+
+.avatar-icon:hover {
+    transform: scale(1.1);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: #272727;
+    min-width: 180px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    margin-top: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.avatar-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #E4E9EC;
+    padding: 10px 12px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dropdown-content a:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dropdown-content .user-info {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+
+/* ----- 购物车弹窗（全局）----- */
+
+.cart-icon-btn {
+    position: relative;
+    margin-left: 25px;
+    background: none;
+    border: none;
+    color: #B4B6B9;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: linear-gradient(145deg, #B4B6B9, #a6a8ab);
+    color: #272727;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: none;
+}
+
+.cart-overlay.active {
+    display: block;
+}
+
+.cart-modal {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 380px;
+    height: 100vh;
+    background: linear-gradient(145deg, #272727, #1C1C1C);
+    z-index: 1001;
+    transition: right 0.3s;
+    padding: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    overflow-y: auto;
+}
+
+.cart-modal.active {
+    right: 0;
+}
+
+
+/* 其他购物车细节样式（cart-item等）已在 cart.js 动态生成时自动附带，无需全局定义，可保留原 cart.js 中的样式或移入 cart.css */
+
+
+/* ----- 页脚 ----- */
+
+.footer2 {
+    text-align: center;
+    margin:80px 0 40px 0;
+    color: #B4B6B9;
+}
+
+.social-links a {
+    color: #B4B6B9;
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #FAFDFF;
+}
+
+
+/* ===== 登录卡片 – 严格遵循 Website Sign In.png ===== */
+
+
+.login-container 
+{
+    max-width: 550px;
+    margin: 40px auto;
+    padding: 40px 35px;
+    background: #E4E9EC;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.login-container h1 {
+    font-family: 'Texturina', serif;
+    font-weight: 700;
+    font-size: 40px;
+    color: #1C1C1C;
+    text-align: center;
+    margin: 5px 0 30px 0;
+    letter-spacing: 1px;
+}
+
+.login-description {
+    color: #3a3a3a;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #B4B6B9;
+}
+
+.section-title {
+    font-family: 'Texturina', serif;
+    font-size: 1.4rem;
+    color: #1C1C1C;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    color: #1C1C1C;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 14px;
+    background: #FAFDFF;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: #1C1C1C;
+    transition: 0.2s;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #272727;
+    box-shadow: 0 0 0 3px rgba(39, 39, 39, 0.1), inset 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.form-group input::placeholder {
+    color: #8a8a8a;
+    font-style: italic;
+    opacity: 0.9;
+}
+/* ----- 密码小眼睛（与注册页一致，适配浅色背景）----- */
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 45px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #272727;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.password-toggle:hover {
+    color: #000;
+}
+
+.password-toggle i {
+    pointer-events: none;
+}
+
+.btn-signin {
+    width: 100%;
+    padding: 14px;
+    background-color: #272727;
+    color: #FAFDFF;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Texturina', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+
+.btn-signin:hover {
+    background: #B4B6B9;
+    color: #272727;
+}
+
+.extras {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.extra-btn{
+    margin: 5px 0 0 0;
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
+    padding: 6px;
+    color: #272727;
+    border: none;
+    font-family: 'Josefin Sans', serif;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.extra-btn:hover{
+    text-align: center;
+    text-decoration-line: underline;
+    padding: 6px;
+    color: #1C1C1C;
+    cursor: pointer;
+}
+
+.extra-btn2{
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
+    padding: 6px;
+    color: #B4B6B9;
+    font-family: 'Josefin Sans', serif;
+    font-size: 20px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.extra-btn2:hover{
+    margin: 0;
+    text-align: center;
+    padding: 6px;
+    color: #E4E9EC;
+    cursor: pointer;
+}
+
+.error-message {
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+    .login-container {
+        max-width: 100%;
+        margin: 20px;
+        padding: 30px 20px;
+    }
+    .login-container h1 {
+        font-size: 2rem;
+    }
+}
+
+
+/* ===== 注册页面 Student Information 优化 ===== */
+
+.registration-container .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 20px;
+}
+
+.registration-container select[name="affiliation"],
+.registration-container select[name="course"] {
+    max-width: 380px;
+    /* 根据设计微调 */
+}
+
+@media (max-width: 600px) {
+    .registration-container .form-row {
+        grid-template-columns: 1fr;
+    }
+    .registration-container select[name="affiliation"],
+    .registration-container select[name="course"] {
+        max-width: 100%;
+        /* 移动设备允许全宽 */
+    }
+}
+
+
+/* 单选按钮组样式 */
+
+.radio-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.radio-group input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #272727;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.radio-group label {
+    color: #1C1C1C;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    word-break: break-word;
+    flex: 1;
+    cursor: pointer;
+}

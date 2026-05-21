@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | HoopsHub</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Admin Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <i class="fas fa-basketball-ball"></i> HoopsHub Admin
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="admin-dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="manage-staff.html"><i class="fas fa-users"></i> Manage Staff</a></li>
+                    <li><a href="manage-members.html"><i class="fas fa-user-friends"></i> Manage Members</a></li>
+                    <li><a href="manage-categories.html"><i class="fas fa-tags"></i> Event Categories</a></li>
+                    <li><a href="manage-events.html"><i class="fas fa-calendar-alt"></i> Manage Events</a></li>
+                    <li><a href="manage-orders.html"><i class="fas fa-shopping-cart"></i> Manage Orders</a></li>
+                    <li><a href="sales-report.html"><i class="fas fa-chart-bar"></i> Sales Reports</a></li>
+                    <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Back to Site</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>Admin Dashboard</h1>
+                <div class="admin-user">
+                    <span>Welcome, Admin</span>
+                    <a href="index.html">Logout</a>
+                </div>
+            </header>
+            
+            <div class="dashboard-cards">
+                <div class="card">
+                    <div class="card-icon" style="background-color: #3498db;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Total Members</h3>
+                        <p class="card-number">1,248</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon" style="background-color: #2ecc71;">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Active Events</h3>
+                        <p class="card-number">12</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon" style="background-color: #e74c3c;">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Total Orders</h3>
+                        <p class="card-number">356</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-section">
+                <h2>Recent Orders</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Event</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ORD-001</td>
+                            <td>John Smith</td>
+                            <td>3x3 Streetball Tournament</td>
+                            <td>$50.00</td>
+                            <td><span class="status confirmed">Confirmed</span></td>
+                            <td>
+                                <button class="btn-action view">View</button>
+                                <button class="btn-action edit">Edit</button>
+                            </td>
+                        </tr>
+                        <!-- More rows would go here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/admin.js"></script>
+</body>
+</html>

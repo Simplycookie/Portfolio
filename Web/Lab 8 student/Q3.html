@@ -1,0 +1,41 @@
+<html>
+
+	<head><title>Lab 8</title>
+
+	<script type="text/javascript">
+		function input()
+		{
+			let messas = document.bill.message.value;
+			let count = 0;
+			let i = 0;
+			alert(messas.length);
+		}
+
+	</script>
+
+	</head>
+
+	<body>
+
+
+		<form name="bill">
+
+		<p>To : <input type="text" name="receiver" /></p>
+
+		<p>Message :
+		<br> <textarea name="message" rows="3" cols="50"></textarea></p>
+
+		<p>Peak Hour : 
+			<input type="radio" name="hour" value="Yes" /> Yes
+			<input type="radio" name="hour" value="No" /> No
+		</p>
+
+		<p><input type="button" name="submitbtn" value="Get Bill" onclick="input()" /></p>
+
+
+		</form>
+
+
+	</body>
+
+</html>

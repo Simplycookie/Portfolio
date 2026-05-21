@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+    <title>Train Fare Calculator</title> 
+    </head> 
+    <body> 
+        <h3>Train Ticket Booking</h3> 
+        <form name="frmTicket"> 
+            Passenger Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input type="text" name="txtPassenger" id="txtPassenger"><br><br> 
+            Number of Passengers:&nbsp; 
+            <input type="number" id="txtCount"><br><br> 
+            Class Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            
+            <select id="classType"> 
+                <option value="Economy">Economy</option> 
+                <option value="Business">Business</option> 
+                <option value="Premium">Premium</option> 
+            </select><br><br> 
+            
+            Day Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <input type="radio" name="radDay" id="radRegular" checked value="0"> 
+            <label for="radRegular">Regular</label> 
+            
+            <input type="radio" name="radDay" id="radHoliday" value="1"> 
+            <label for="radHoliday">Holiday</label><br><br> 
+            
+            <button type="button" onclick="calcFare()">Calculate</button> 
+        </form> 
+        
+        <div id="output" style="margin-top:20px;"></div>  
+        
+    </body> 
+
+    <script> 
+        function calcFare(){
+            let passanger_name = document.getElementById("txtPassenger").value;
+            let Number_of_passenger = parseInt(document.getElementById("txtCount").value);
+            let Ticket_Class = document.getElementById("classType").value;
+            let radDay = document.frmTicket.radDay.value;
+
+            let super_charge = 0;
+            if(radDay==1){
+                super_charge = 20.00;
+            }
+            let Class_fare = getClassFare(Ticket_Class);
+            let Total_Fare = (Number_of_passenger * Class_fare) + super_charge;
+            alert("RM" + Total_Fare);
+        }
+
+        function getClassFare(Ticket_Class){
+            let Class_fare = 0;
+            switch(Ticket_Class){
+                case "Economy":
+                    Class_fare = 30.00;
+                    break;
+                case "Business":
+                    Class_fare = 50.00;
+                    break;
+                case "Premium":
+                    Class_fare = 80.00;
+                    break;
+            }
+            return Class_fare;
+        }
+    </script>
+</html>

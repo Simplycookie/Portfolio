@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DICE Club - My Cart</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="cart.css">
+    <link href="https://fonts.googleapis.com/css2?family=Texturina:wght@700&family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">D.I.C.E.</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <button class="cart-icon-btn" id="cartIconBtn">
+                    🛒 <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <div id="authStateButton"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="cart-fullpage">
+        <h1>My Cart</h1>
+        <div id="cartItemsFull" class="cart-items"></div>
+        <div id="cartSummaryFull" class="cart-summary" style="display: none;"></div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 D.I.C.E. MMU | Dive into Imagination for Creative Entertainment</p>
+        <div class="social-links">
+            <a href="#">Instagram</a> |
+            <a href="#">Discord</a> |
+            <a href="#">Email</a>
+        </div>
+    </footer>
+
+    <!-- SHOPPING CART POP UP -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal"></div>
+
+    <script src="auth-state.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        // 
+        document.addEventListener('DOMContentLoaded', function() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsFull = document.getElementById('cartItemsFull');
+            const cartSummaryFull = document.getElementById('cartSummaryFull');
+
+            function renderFullCart() {
+                if (!cartItemsFull || !cartSummaryFull) return;
+                cartItemsFull.innerHTML = '';
+                if (cart.length === 0) {
+                    cartItemsFull.innerHTML = '<div class="cart-empty"><p>Your cart is empty</p><a href="events.html" class="btn-view-cart">Browse Events</a></div>';
+                    cartSummaryFull.style.display = 'none';
+                } else {
+                    let subtotal = 0;
+                    cart.forEach(item => {
+                        const itemTotal = item.price * item.quantity;
+                        subtotal += itemTotal;
+                        const cartItem = document.createElement('div');
+                        cartItem.className = 'cart-item';
+                        cartItem.innerHTML = `
+                            <img src="${item.image}" alt="${item.title}" class="cart-item-image">
+                            <div class="item-details">
+                                <h3>${item.title}</h3>
+                                <p class="item-date">Date: ${item.date}</p>
+                                <p class="item-price">Price: RM ${item.price.toFixed(2)}</p>
+                                <div class="item-quantity">
+                                    <button class="qty-btn" onclick="updateQuantityFull('${item.id}', -1)">-</button>
+                                    <span class="qty">${item.quantity}</span>
+                                    <button class="qty-btn" onclick="updateQuantityFull('${item.id}', 1)">+</button>
+                                </div>
+                            </div>
+                            <button class="remove-btn" onclick="removeFromCartFull('${item.id}')">Remove</button>
+                            <div class="item-subtotal">RM ${itemTotal.toFixed(2)}</div>
+                        `;
+                        cartItemsFull.appendChild(cartItem);
+                    });
+                    const fee = 5.00;
+                    const total = subtotal + fee;
+                    cartSummaryFull.style.display = 'block';
+                    cartSummaryFull.innerHTML = `
+                        <div class="summary-details">
+                            <div class="summary-row"><span>Subtotal:</span><span>RM ${subtotal.toFixed(2)}</span></div>
+                            <div class="summary-row"><span>Service Fee:</span><span>RM ${fee.toFixed(2)}</span></div>
+                            <div class="summary-row total"><span>Total:</span><span>RM ${total.toFixed(2)}</span></div>
+                        </div>
+                        <div class="cart-actions">
+                            <a href="events.html" class="btn-continue">Continue Shopping</a>
+                            <a href="checkout.html" class="btn-checkout">Proceed to Checkout</a>
+                        </div>
+                    `;
+                }
+            }
+
+            window.updateQuantityFull = function(eventId, change) {
+                const item = cart.find(item => item.id === eventId);
+                if (item) {
+                    item.quantity += change;
+                    if (item.quantity <= 0) {
+                        cart = cart.filter(item => item.id !== eventId);
+                    }
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    renderFullCart();
+                    if (window.updateCartCount) window.updateCartCount();
+                }
+            };
+
+            window.removeFromCartFull = function(eventId) {
+                cart = cart.filter(item => item.id !== eventId);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderFullCart();
+                if (window.updateCartCount) window.updateCartCount();
+            };
+
+            renderFullCart();
+        });
+    </script>
+</body>
+
+</html>

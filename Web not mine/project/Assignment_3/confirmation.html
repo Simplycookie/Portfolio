@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DICE Club - Booking Confirmed</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="confirmation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Texturina:wght@700&family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- nav bar-->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">D.I.C.E.</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <button class="cart-icon-btn" id="cartIconBtn">
+                    🛒 <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <div id="authStateButton"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="confirmation-container">
+
+        <div class="booking-steps">
+            <div class="step completed">
+                <div class="step-number">1</div>
+                <div class="step-title">Booking Details</div>
+            </div>
+            <div class="step-line"></div>
+            <div class="step completed">
+                <div class="step-number">2</div>
+                <div class="step-title">Payment</div>
+            </div>
+            <div class="step-line"></div>
+            <div class="step active">
+                <div class="step-number">3</div>
+                <div class="step-title">Confirmation</div>
+            </div>
+        </div>
+
+        <!-- successful details-->
+        <div class="confirmation-header">
+            <div class="success-icon">✓</div>
+            <h1>Booking Confirmed!</h1>
+            <p>Thank you for your booking. Your event ticket(s) have been reserved successfully.</p>
+        </div>
+
+        <!-- booking confirmation details -->
+        <div class="confirmation-card">
+            <h2>Order Summary</h2>
+            <div class="order-details" id="orderDetails">
+                <p>Loading order details...</p>
+            </div>
+        </div>
+
+        <!-- user data details -->
+        <div class="confirmation-card">
+            <h2>Customer Information</h2>
+            <div class="customer-details" id="customerDetails">
+                <p>Loading customer information...</p>
+            </div>
+        </div>
+
+        <div class="important-notice">
+            <p><strong>What's next?</strong> A confirmation email has been sent to your email address. Please keep your order ID for future reference. You can view your bookings in your <a href="dashboard.html">dashboard</a>.</p>
+        </div>
+
+        <!-- confirmation button -->
+        <div class="confirmation-actions">
+            <a href="events.html" class="btn-secondary">Browse More Events</a>
+            <a href="dashboard.html" class="btn-primary">Go to My Dashboard</a>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+        <p>&copy; 2026 D.I.C.E. MMU | Dive into Imagination for Creative Entertainment</p>
+        <div class="social-links">
+            <a href="#">Instagram</a> |
+            <a href="#">Discord</a> |
+            <a href="#">Email</a>
+        </div>
+    </footer>
+
+    <!-- cart -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+
+    </div>
+
+    <script src="auth-state.js"></script>
+    <script src="cart.js"></script>
+    <script src="confirmation.js"></script>
+</body>
+
+</html>

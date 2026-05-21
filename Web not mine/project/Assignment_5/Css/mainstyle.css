@@ -1,0 +1,45 @@
+body{
+    font-family: 'Texturina';
+    font-weight: 600;
+}
+
+.Base_colour_1 {
+    color: #1C1C1C;
+}
+
+.Base_colour_2 {
+    color: #B4B6B9;
+}
+
+.Accent_colour_1 {
+    color: #272727;
+}
+
+.Accent_colour_2 {
+    color: #E4E9EC;
+}
+
+.White_colour {
+    color: #FAFDFF;
+}
+
+.backBase_colour_1 {
+    background-color: #1C1C1C;
+}
+
+.backBase_colour_2 {
+    background-color: #B4B6B9;
+}
+
+.backAccent_colour_1 {
+    background-color: #272727;
+}
+
+.backAccent_colour_2 {
+    background-color: #E4E9EC;
+}
+
+.back1White_colour {
+    background-color: #FAFDFF;
+}
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>DICE - Calendar</title>
+        <link rel="stylesheet" href="global.css">
+        <link rel="stylesheet" href="calendar.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+    <header>
+
+            <!-- NAVIGATION -->
+            <nav class="navbar">
+                <div class="nav-container">
+                    <a href="index.html" class="logo">D.I.C.E.</a>
+                    <div class="nav-links">
+                        <a href="index.html#about_us">About Us</a>
+                        <a href="index.html#featured-events">Events</a>
+                        <a href="index.html#dice_registration">Club Registration</a>
+                        <a href="">Service</a>
+                        <a href="contact.html">Contact Us</a>
+                        <button class="cart-icon-btn" id="cartIconBtn">
+                            🛒 <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                        <div id="authStateButton"></div>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- CATEGORY TITLE -->
+            <section style = "height: 350px;">
+
+                <h1 class="categorytitle">DICE Calendar</h1>
+
+            </section>
+
+        </header>
+
+        <!-- Calendar Navigation -->
+
+        <nav class="cal_nav" style="font-family: 'Josefin Sans';">
+            <ul>
+                <li><a href="">General</a></li>
+                <li><a href="">DICE Boardgame Hangout</a></li>
+                <li><a href="">DICE League</a></li>
+                <li><a href="">DICE Society</a></li>
+                <li><a href="">Others</a></li>               
+            </ul>
+        </nav>
+        
+        <!-- THE CALENDAR -->
+        <section class="box">
+            <p id="calendar_title">Calendar</p>
+
+            <table class="calendar">
+            <thead>
+                <tr>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                    <th>Sun</th>
+                </tr>
+            </thead>
+            <tbody id="calendar_dates">
+                
+            </tbody>
+        </table>
+        </section>
+        
+
+        <script src="DICE-Calendar-Dates.js"></script>
+
+
+        <!-- footer -->
+     <footer id="footer">
+        <div class="footer-container">
+
+            <a href="index.html" class="footer-logo">
+                <img src="assets/DICE_LOGO.png" alt="DICE Logo">
+            </a>
+
+            <table>
+
+                <tr>
+                    <th>General</th>
+                    <th>Events</th>
+                    <th>Others</th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <ul>
+                            <li><a href="#featured_events">Featured Events</a></li>
+                            <li><a href="#about_us">About Us</a></li> 
+                            <li><a href="#dice_registration">Club Registration</a></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li><a href="DICE-Boardgame-Hangout.html" target="_blank">DICE Boardgame<br>Hangout</a></li> 
+                            <li><a href="DICE-League.html" target="_blank">DICE League</a></li>
+                            <li><a href="DICE-Society.html" target="_blank">DICE Society</a></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li><a href="#about_us">About Us</a></li> 
+                            <li><a href="#dice_registration">Club Registration</a></li>
+                        </ul>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div>
+            <p>&copy; 2026 D.I.C.E. MMU | Dive into Imagination for Creative Entertainment</p>
+            <div class="social-links">
+                <a href="#">Instagram</a> |
+                <a href="#">Discord</a> |
+                <a href="#">Email</a>
+            </div>
+        </div>
+    </footer>
+        
+    </body>
+</html>

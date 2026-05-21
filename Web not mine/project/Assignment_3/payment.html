@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DICE Club - Payment</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="payment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Texturina:wght@700&family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">D.I.C.E.</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <button class="cart-icon-btn" id="cartIconBtn">
+                    🛒 <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <div id="authStateButton"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="payment-container">
+        <div class="page-header">
+            <h1>Booking Payment</h1>
+            <p>Complete your booking by making payment and uploading your payment proof. You will receive a confirmation email once payment is verified.</p>
+        </div>
+
+        <!-- 支付步骤指示器 -->
+        <div class="payment-steps">
+            <div class="step completed">
+                <div class="step-number">1</div>
+                <div class="step-title">Booking Details</div>
+            </div>
+            <div class="step-line"></div>
+            <div class="step active">
+                <div class="step-number">2</div>
+                <div class="step-title">Payment</div>
+            </div>
+            <div class="step-line"></div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-title">Confirmation</div>
+            </div>
+        </div>
+
+        <div class="payment-form-container">
+            <!-- 左侧：支付信息 -->
+            <div class="payment-info-section">
+                <div class="section-header">
+                    <h2>Personal Information</h2>
+                    <p>Please verify your personal details for payment confirmation.</p>
+                </div>
+
+                <div class="user-info-display" id="userInfoDisplay">
+                    <h3>Your Information</h3>
+                    <div class="user-info-row">
+                        <div class="user-info-label">Full Name:</div>
+                        <div class="user-info-value" id="userFullName">Loading...</div>
+                    </div>
+                    <div class="user-info-row">
+                        <div class="user-info-label">Email Address:</div>
+                        <div class="user-info-value" id="userEmail">Loading...</div>
+                    </div>
+                    <div class="user-info-row">
+                        <div class="user-info-label">Phone Number:</div>
+                        <div class="user-info-value" id="userPhone">Loading...</div>
+                    </div>
+                </div>
+
+                <div class="price-display">
+                    <h3>Total Amount to Pay</h3>
+                    <div class="price-amount" id="totalAmount">RM 0.00</div>
+                    <div class="payment-status pending" id="paymentStatus">Payment Pending</div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="payment-qr-section">
+                    <h3>Payment QR</h3>
+                    <div class="qr-codes-container">
+                        <div class="qr-method">
+                            <h4>DuitNow</h4>
+                            <div class="qr-code">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=DICE%20Event%20Payment%0AReference%3A%20DICE-2026-001%0AAmount%3A%20RM32.00%0ADuitNow%20ID%3A%20123456789" alt="DuitNow QR Code">
+                            </div>
+                            <p class="qr-instructions">Scan with your banking app</p>
+                        </div>
+                        <div class="qr-method">
+                            <h4>Touch N Go</h4>
+                            <div class="qr-code">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=DICE%20Event%20Payment%0AReference%3A%20DICE-2026-001%0AAmount%3A%20RM32.00%0ATouch%20N%20Go%20ID%3A%20DICECLUB2026" alt="Touch N Go QR Code">
+                            </div>
+                            <p class="qr-instructions">Scan with Touch N Go eWallet</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="payment-upload-section">
+                    <div class="section-header">
+                        <h2>Proof of Payment Upload</h2>
+                        <p>Please upload a screenshot or photo of your payment confirmation.</p>
+                    </div>
+
+                    <div class="upload-container" id="uploadContainer">
+                        <div class="upload-icon">📁</div>
+                        <div class="upload-title">Upload Here</div>
+                        <div class="upload-instructions">Drag & drop your payment proof here or click to browse</div>
+                        <button class="btn-upload" id="browseButton">Browse Files</button>
+                        <div class="file-size-limit">File Size Limit: 10 MB</div>
+                    </div>
+
+                    <input type="file" id="fileInput" accept="image/*,.pdf" style="display: none;">
+
+                    <div class="file-preview" id="filePreview" style="display: none;"></div>
+
+                    <div class="important-notice">
+                        <p>
+                            <strong>Important:</strong> Please ensure your payment proof clearly shows:<br> 1. Transaction ID<br> 2. Date and time<br> 3. Amount paid<br> 4. Recipient name (DICE Club)<br> Your booking will be confirmed within 24 hours
+                            after payment verification.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="payment-actions">
+                    <a href="checkout.html" class="btn-back">Back to Booking</a>
+                    <button class="btn-submit-payment" id="submitPayment" disabled>Submit Payment</button>
+                </div>
+            </div>
+
+            <!-- 右侧：订单摘要 -->
+            <div class="booking-summary">
+                <div class="summary-header">
+                    <h2>Booking Summary</h2>
+                </div>
+                <div class="summary-item">
+                    <h3 style="color: #FAFDFF; margin-bottom: 15px; font-family: 'Texturina', serif;" id="summaryEventName">Game Design Workshop</h3>
+                    <div class="summary-row">
+                        <div class="summary-label">Date</div>
+                        <div class="summary-value" id="summaryDate">Loading...</div>
+                    </div>
+                    <div class="summary-row">
+                        <div class="summary-label">Time</div>
+                        <div class="summary-value" id="summaryTime">Loading...</div>
+                    </div>
+                    <div class="summary-row">
+                        <div class="summary-label">Number of People</div>
+                        <div class="summary-value" id="summaryPax">Loading...</div>
+                    </div>
+                    <div class="summary-row">
+                        <div class="summary-label">Location</div>
+                        <div class="summary-value">MMU Faculty of Artificial Intelligence and Engineering (FAIE), CLCR 3044</div>
+                    </div>
+                </div>
+                <div class="summary-item">
+                    <h3 style="color: #FAFDFF; margin-bottom: 15px; font-family: 'Texturina', serif;">Payment Details</h3>
+                    <div class="summary-row">
+                        <div class="summary-label">Ticket Price</div>
+                        <div class="summary-value" id="summaryTicketPrice">RM 30.00</div>
+                    </div>
+                    <div class="summary-row">
+                        <div class="summary-label">Processing Fee</div>
+                        <div class="summary-value" id="summaryProcessingFee">RM 2.00</div>
+                    </div>
+                    <div class="summary-row">
+                        <div class="summary-label">Quantity</div>
+                        <div class="summary-value" id="summaryQuantity">1</div>
+                    </div>
+                </div>
+                <div class="summary-total">
+                    <div class="summary-row">
+                        <div class="summary-label">Total Amount</div>
+                        <div class="summary-value" id="summaryTotal">RM 32.00</div>
+                    </div>
+                </div>
+                <div class="important-notice">
+                    <p style="margin: 0 0 10px 0;">
+                        <strong>Payment Reference:</strong><br>
+                        <span id="paymentReference">DICE-2026-001</span>
+                    </p>
+                    <p style="font-size: 0.85rem; margin: 0;">Please include this reference in your payment</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 购物车弹窗 -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <!-- 购物车内容由 cart.js 动态渲染，此处留空即可 -->
+    </div>
+    <footer class="footer">
+        <p>&copy; 2026 D.I.C.E. MMU | Dive into Imagination for Creative Entertainment</p>
+        <div class="social-links">
+            <a href="#">Instagram</a> |
+            <a href="#">Discord</a> |
+            <a href="#">Email</a>
+        </div>
+    </footer>
+
+    <script src="auth-state.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        (function() {
+            "use strict";
+
+            // ---------- 等待 DOM 加载完成 ----------
+            document.addEventListener('DOMContentLoaded', function() {
+                // ---------- DOM 元素 ----------
+                const uploadContainer = document.getElementById('uploadContainer');
+                const fileInput = document.getElementById('fileInput');
+                const browseButton = document.getElementById('browseButton');
+                const filePreview = document.getElementById('filePreview');
+                const submitPaymentBtn = document.getElementById('submitPayment');
+
+                // ---------- 从 localStorage 读取数据 ----------
+                const bookingData = JSON.parse(localStorage.getItem('currentBooking') || 'null');
+                const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+
+                // 无预订数据，重定向到活动页
+                if (!bookingData) {
+                    alert('No booking data found. Please start your booking from the events page.');
+                    window.location.href = 'events.html';
+                    return;
+                }
+
+                // ---------- 更新页面数据（修复 Loading 问题）----------
+                function updatePageData() {
+                    // ----- 安全获取用户信息 -----
+                    let fullName = 'Not provided';
+                    let email = 'Not provided';
+                    let phone = 'Not provided';
+
+                    if (bookingData.user) {
+                        fullName = bookingData.user.fullName || fullName;
+                        email = bookingData.user.email || email;
+                        phone = bookingData.user.phone || phone;
+                    } else if (currentUser) {
+                        fullName = currentUser.fullName || fullName;
+                        email = currentUser.email || email;
+                        const userData = users.find(u => u.email === currentUser.email);
+                        if (userData && userData.phone) {
+                            phone = userData.phone;
+                        }
+                    }
+
+                    document.getElementById('userFullName').textContent = fullName;
+                    document.getElementById('userEmail').textContent = email;
+                    document.getElementById('userPhone').textContent = phone;
+
+                    // ----- 总金额 -----
+                    document.getElementById('totalAmount').textContent =
+                        bookingData.total ? `RM ${bookingData.total.toFixed(2)}` : 'RM 0.00';
+
+                    // ----- 活动名称 -----
+                    document.getElementById('summaryEventName').textContent =
+                        bookingData.event || 'Game Design Workshop';
+
+                    // ----- 日期 -----
+                    if (bookingData.date) {
+                        const date = new Date(bookingData.date);
+                        if (!isNaN(date.getTime())) {
+                            document.getElementById('summaryDate').textContent = date.toLocaleDateString('en-US', {
+                                day: 'numeric',
+                                month: 'long',
+                                year: 'numeric'
+                            });
+                        } else {
+                            document.getElementById('summaryDate').textContent = 'Invalid Date';
+                        }
+                    } else {
+                        document.getElementById('summaryDate').textContent = 'None Selected';
+                    }
+
+                    // ----- 时间（格式化）-----
+                    const formatTime = function(t) {
+                        if (!t) return '';
+                        const parts = t.split(':');
+                        const hour = parseInt(parts[0], 10);
+                        const minute = parts[1] || '00';
+                        const suffix = hour >= 12 ? 'pm' : 'am';
+                        const hour12 = hour % 12 || 12;
+                        return hour12 + ':' + minute + ' ' + suffix;
+                    };
+
+                    document.getElementById('summaryTime').textContent =
+                        formatTime(bookingData.timeStart) + ' - ' + formatTime(bookingData.timeEnd);
+
+                    // ----- 人数 -----
+                    if (bookingData.pax) {
+                        const pax = parseInt(bookingData.pax, 10);
+                        document.getElementById('summaryPax').textContent =
+                            pax + (pax === 1 ? ' person' : ' people');
+                        document.getElementById('summaryQuantity').textContent = pax;
+                    } else {
+                        document.getElementById('summaryPax').textContent = 'Not selected';
+                        document.getElementById('summaryQuantity').textContent = '1';
+                    }
+
+                    // ----- 价格 -----
+                    document.getElementById('summaryTicketPrice').textContent =
+                        bookingData.pricePerPerson ? `RM ${bookingData.pricePerPerson.toFixed(2)}` : 'RM 30.00';
+                    document.getElementById('summaryProcessingFee').textContent =
+                        bookingData.processingFee ? `RM ${bookingData.processingFee.toFixed(2)}` : 'RM 2.00';
+                    document.getElementById('summaryTotal').textContent =
+                        bookingData.total ? `RM ${bookingData.total.toFixed(2)}` : 'RM 32.00';
+
+                    // ----- 支付参考号（随机生成）-----
+                    const refNumber = 'DICE-' + new Date().getFullYear() + '-' +
+                        Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+                    document.getElementById('paymentReference').textContent = refNumber;
+                    bookingData.paymentReference = refNumber;
+                    localStorage.setItem('currentBooking', JSON.stringify(bookingData));
+                }
+
+                // 执行页面数据更新
+                updatePageData();
+
+                // ---------- 文件上传相关 ----------
+                let uploadedFile = null;
+
+                // 点击容器触发文件选择（排除按钮本身）
+                uploadContainer.addEventListener('click', function(e) {
+                    if (e.target !== browseButton) {
+                        fileInput.click();
+                    }
+                });
+
+                browseButton.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    fileInput.click();
+                });
+
+                // 拖拽样式
+                uploadContainer.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    uploadContainer.classList.add('drag-over');
+                });
+                uploadContainer.addEventListener('dragleave', function() {
+                    uploadContainer.classList.remove('drag-over');
+                });
+                uploadContainer.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    uploadContainer.classList.remove('drag-over');
+                    if (e.dataTransfer.files.length) {
+                        handleFile(e.dataTransfer.files[0]);
+                    }
+                });
+
+                fileInput.addEventListener('change', function(e) {
+                    if (e.target.files.length) {
+                        handleFile(e.target.files[0]);
+                    }
+                });
+
+                function handleFile(file) {
+                    const maxSize = 10 * 1024 * 1024; // 10 MB
+                    if (file.size > maxSize) {
+                        alert('File size exceeds 10 MB limit.');
+                        return;
+                    }
+                    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf'];
+                    if (allowedTypes.indexOf(file.type) === -1) {
+                        alert('Please upload an image (JPEG, PNG, GIF) or PDF file.');
+                        return;
+                    }
+                    uploadedFile = file;
+                    showFilePreview(file);
+                    submitPaymentBtn.disabled = false;
+                }
+
+                function showFilePreview(file) {
+                    filePreview.style.display = 'block';
+                    if (file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            filePreview.innerHTML =
+                                '<img src="' + e.target.result + '" alt="Payment Proof">' +
+                                '<div class="file-name">' + file.name + '</div>' +
+                                '<div class="file-info">' + (file.size / 1024 / 1024).toFixed(2) + ' MB</div>' +
+                                '<button class="remove-file" id="removeFile">Remove File</button>';
+                            document.getElementById('removeFile').addEventListener('click', function(e) {
+                                e.stopPropagation();
+                                uploadedFile = null;
+                                filePreview.style.display = 'none';
+                                fileInput.value = '';
+                                submitPaymentBtn.disabled = true;
+                            });
+                        };
+                        reader.readAsDataURL(file);
+                    } else {
+                        // PDF 或其他非图片文件
+                        filePreview.innerHTML =
+                            '<div style="font-size: 4rem; color: #FAFDFF;">📄</div>' +
+                            '<div class="file-name">' + file.name + '</div>' +
+                            '<div class="file-info">' + (file.size / 1024 / 1024).toFixed(2) + ' MB (PDF)</div>' +
+                            '<button class="remove-file" id="removeFile">Remove File</button>';
+                        document.getElementById('removeFile').addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            uploadedFile = null;
+                            filePreview.style.display = 'none';
+                            fileInput.value = '';
+                            submitPaymentBtn.disabled = true;
+                        });
+                    }
+                }
+
+                // ---------- 提交支付 ----------
+                submitPaymentBtn.addEventListener('click', function() {
+                    if (!uploadedFile) {
+                        alert('Please upload your payment proof before submitting.');
+                        return;
+                    }
+
+                    submitPaymentBtn.disabled = true;
+                    submitPaymentBtn.textContent = 'Processing...';
+
+                    setTimeout(function() {
+                        document.getElementById('paymentStatus').textContent = 'Payment Submitted';
+                        document.getElementById('paymentStatus').className = 'payment-status success';
+
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            // ----- 1. 保存订单到 orders -----
+                            const orderId = 'ORD-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+
+                            // 从 bookingData 获取用户邮箱（兼容旧数据结构）
+                            let userEmail = 'guest@example.com';
+                            if (currentUser && currentUser.email) {
+                                userEmail = currentUser.email;
+                            } else if (bookingData.user && bookingData.user.email) {
+                                userEmail = bookingData.user.email;
+                            }
+
+                            // 获取用户完整信息（用于订单）
+                            let userFullName = 'Guest';
+                            let userPhone = '';
+                            if (bookingData.user) {
+                                userFullName = bookingData.user.fullName || userFullName;
+                                userPhone = bookingData.user.phone || userPhone;
+                            } else if (currentUser) {
+                                userFullName = currentUser.fullName || userFullName;
+                                const userData = users.find(u => u.email === currentUser.email);
+                                userPhone = (userData && userData.phone) || '';
+                            }
+
+                            const newOrder = {
+                                id: orderId,
+                                userEmail: userEmail,
+                                eventName: bookingData.event || 'DICE Event',
+                                eventDate: bookingData.date || '',
+                                pax: bookingData.pax || 1,
+                                total: bookingData.total || 0,
+                                status: 'paid', // 支付成功，直接确认
+                                orderDate: new Date().toISOString(),
+                                paymentReference: bookingData.paymentReference || 'N/A',
+                                user: {
+                                    fullName: userFullName,
+                                    email: userEmail,
+                                    phone: userPhone
+                                }
+                            };
+
+                            const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+                            orders.push(newOrder);
+                            localStorage.setItem('orders', JSON.stringify(orders));
+
+                            // ----- 2. 保存支付凭据信息（可选）-----
+                            const paymentInfo = {
+                                ...bookingData,
+                                paymentProof: e.target.result,
+                                paymentDate: new Date().toISOString(),
+                                paymentStatus: 'submitted'
+                            };
+                            localStorage.setItem('paymentInfo', JSON.stringify(paymentInfo));
+
+                            // ----- 3. 清空购物车 -----
+                            localStorage.removeItem('cart');
+                            // 更新购物车图标
+                            const cartCount = document.getElementById('cartCount');
+                            if (cartCount) {
+                                cartCount.textContent = '0';
+                                cartCount.style.display = 'none';
+                            }
+
+                            // ----- 4. 跳转到确认页（带上订单ID）-----
+                            window.location.href = 'confirmation.html?orderId=' + orderId;
+                        };
+                        reader.readAsDataURL(uploadedFile);
+                    }, 2000); // 模拟2秒处理
+                });
+
+                // ---------- 更新购物车图标数量（初始化）----------
+                const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                let totalItems = 0;
+                for (let i = 0; i < cart.length; i++) {
+                    totalItems += (cart[i].quantity || 0);
+                }
+                const cartCount = document.getElementById('cartCount');
+                if (cartCount) {
+                    cartCount.textContent = totalItems;
+                    cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+                }
+            }); // DOMContentLoaded 结束
+        })();
+    </script>
+</body>
+
+</html>

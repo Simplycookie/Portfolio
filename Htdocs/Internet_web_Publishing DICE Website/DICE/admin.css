@@ -1,0 +1,144 @@
+* {
+    background-color: #0a0a0a;
+    color: #E4E9EC;
+    font-family: "Texturina";
+    scroll-behavior: smooth;
+    scrollbar-color: #272727 #0a0a0a;
+}
+
+body {
+    margin: 40px;
+}
+
+body h1 {
+    color: #E4E9EC;
+    font-size: 50px;
+    font-weight: 700;
+    margin: 20px 0 30px 0;
+}
+
+.returning {
+    text-decoration: none;
+    padding: 12px;
+    border: none;
+    color: #B4B6B9;
+    font-size: 20px;
+    font-family: "Josefin Sans";
+    font-weight: 600;
+}
+
+.returning:hover {
+    text-decoration: underline;
+    color: #E4E9EC;
+}
+
+.admin-decore {
+    margin: 0;
+    margin: 0 40px;
+}
+
+.admin-container {
+    margin: 0;
+    padding: 40px;
+    margin: 0 20px;
+    border-radius: 10px;
+    background-color: #272727;
+
+    label {
+        font-family: "Josefin Sans";
+        font-size: 20px;
+        font-weight: 600;
+        background-color: #272727;
+    }
+
+    input,
+    textarea,
+    button {
+        background-color: #1C1C1C;
+        font-family: "Josefin Sans";
+        font-weight: 400;
+        font-size: 16px;
+        margin-top: 15px;
+        border-radius: 4px;
+        padding: 8px 10px;
+        border: rgba(180, 182, 185, 0.8) solid 1px;
+    }
+
+}
+
+ol,
+li,
+li a {
+    background-color: #272727;
+    font-size: 30px;
+    margin: 0;
+    margin-bottom: 10px;
+    text-decoration-line: none;
+}
+
+
+li a:hover {
+    text-decoration: underline;
+}
+
+
+.table-color tr,
+td,
+th {
+    background-color: #272727 !important;
+    border: 2px solid #B4B6B9;
+}
+
+.table-deco {
+    background-color: #272727;
+    border: 0;
+
+    tr,
+    td,
+    th,
+    td a {
+        height: min-content;
+        padding-inline: 5px;
+        background-color: #272727;
+        text-decoration: none;
+    }
+}
+
+.submitbtn {
+    margin: 0 !important;
+    background-color: #B4B6B9 !important;
+    color: #1C1C1C !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    padding: 6px 18px !important;
+}
+
+.form-deco {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 2px;
+    margin-inline: 4px;
+    background-color: #272727;
+    justify-content: center;
+
+    p {
+        display: flex;
+        background-color: #272727;
+        margin: 0;
+        align-self: flex-start;
+        justify-self: center;
+    }
+
+    input {
+        margin-top: 0;
+        margin-bottom: 8px;
+    }
+}
+
+.side-by-side {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+}

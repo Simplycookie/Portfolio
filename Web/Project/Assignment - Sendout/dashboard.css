@@ -1,0 +1,58 @@
+.dashboard-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background: linear-gradient(145deg, #272727, #1C1C1C);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dashboard-container h1 {
+    color: #FAFDFF;
+    font-family: 'Texturina', serif;
+    margin-bottom: 30px;
+}
+
+.profile-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    color: #FAFDFF;
+}
+
+.profile-card h3 {
+    margin-top: 0;
+    color: #B4B6B9;
+}
+
+.booking-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #FAFDFF;
+}
+
+.booking-item strong {
+    color: #B4B6B9;
+}
+
+.status-paid {
+    color: #2ecc71;
+}
+
+.status-pending {
+    color: #f39c12;
+}
+
+.btn-pay {
+    display: inline-block;
+    margin-left: 15px;
+    padding: 5px 15px;
+    background: #B4B6B9;
+    color: #272727;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}

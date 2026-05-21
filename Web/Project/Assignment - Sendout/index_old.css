@@ -1,0 +1,476 @@
+/* DEFAULT STYLES */
+
+html /*The Main Page colours*/
+{
+    scroll-behavior: smooth;
+    background-color: #1C1C1C;
+    scrollbar-color: #272727 #0a0a0a;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+}
+
+h6 /*Because an image will be a title later lolol*/
+{
+    font-family: "Texturina";
+    font-weight: bold 700;
+    font-size: 60px;
+    text-align: center;
+    color: #FAFDFF;
+}
+
+h1 /*Heading*/
+{
+    font-family: "Texturina";
+    font-weight: 600;
+    font-size: 50px;
+    margin: 0;
+    margin-top: 15px;
+}
+
+h2 /*Sub headings*/
+{
+    font-family: "Texturina";
+    font-weight: 600;
+    font-size: 50px;
+    margin: 0;
+    margin-top: 15px;
+    padding-top: 120px;
+    padding-bottom: 100px;
+    text-align: center;
+    color: #FAFDFF;
+}
+
+h3 /*Card titles*/
+{
+    font-family: "Texturina";
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.s1
+{
+    font-family: "Josefin Sans";
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.s2
+{
+    font-family: "Josefin Sans";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+/* CLASS STYLES */
+
+    /* GENERAL */
+
+    .box /*Black 2 box*/
+    {
+        padding: 40px 0 40px 0;
+        margin-bottom: 15px;
+        background-color: #272727;
+        color: #FAFDFF;
+    }
+
+    .c2 /*Colour 2*/
+    {
+        color: #FAFDFF;
+    }
+
+
+    /* NAVIGATION BAR */
+    .navbar 
+    {
+        font-family: 'Josefin Sans';
+        background-color: #1C1C1C;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .navbar a
+    {
+        color: #FAFDFF;
+        text-decoration: none;
+        padding: 15px;
+        display: block;
+    }
+
+    .navbar ul
+    {
+        text-align: center;
+        list-style: none;
+        background-color: #0a0a0a;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .navbar li
+    {
+        float: right;
+    }
+
+    /* ABOUT SECTION */
+    .about
+    {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    }
+
+    .about_text
+    {
+        width: 60%;
+    }
+
+    .about_image 
+    {
+        width: 40%;
+        text-align: right;
+    }
+
+    .about_image img {
+        max-width: 100%;
+    }
+
+    /* EVENTS */
+
+    .e
+    {
+        display: flex;
+        justify-content: space-between;
+        padding: 30px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .e_right 
+    {
+        display: flex;
+        flex-direction: column;
+        width: 65%;
+    }
+
+    .e_image 
+    {
+        width: 35%;
+        text-align: left;
+    }
+
+    .e_image img {
+        max-width: 100%;
+        position: relative;
+    }
+
+    .e_button
+    {
+        align-self: flex-end;
+        background-color: #E4E9EC;
+        border: none;
+        color: #1C1C1C;
+        padding: 15px 30px 15px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: none;
+        font-family: "Josefin Sans";
+        font-weight: 600;
+        font-size: 20px;
+        margin: 0;
+        border-radius: 6px;
+        display: block;
+        margin-top: 20px;
+        
+    }
+
+    /* FEATURED EVENTS SECTION */
+    .featured
+    {
+        margin-bottom: 15px;
+        background-color: #272727;
+        color: #FAFDFF;
+        height: 350px; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .big_button
+    {
+        margin-bottom: 15px;
+        background-color: #272727;
+        color: #FAFDFF;
+        height: 350px; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+        text-align: center;
+        text-decoration: none;
+    }
+    .big_button p
+    {
+        font-family: "Josefin Sans";
+        font-weight: 400;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    /* EVENTS BY DICE SECTION */
+    .cards {
+        max-width: 1200px;
+        margin: 0 auto; 
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        width: 270px;
+        background: #E4E9EC;
+        padding: 40px;
+        text-align: left;
+        text-decoration: none;
+        padding-bottom: 25px;
+        color: #1C1C1C;;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card h2
+    {
+        line-height: 1.2;
+        height: 60px;
+    }
+    .card .s2
+    {
+        color: #272727;
+        padding-bottom: 10px;
+    }
+
+    .card_img 
+    {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .card:hover 
+    {
+        transform: translateY(-30px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .dice
+    {
+        width: 40px;
+        float: right;
+    }
+
+    /* FOOTER SECTION */
+    #footer
+    {
+        padding: 50px;
+        justify-content: center;
+    }
+
+    #footer table
+    {
+        max-width: 900px;
+        margin: 0 auto; 
+        text-align: left;
+        text-decoration: none;
+        color: #FAFDFF;
+    }
+
+    #footer th
+    {
+        font-family: "Josefin Sans";
+        font-weight: 600;
+        font-size: 30px;
+        width: 250px;
+        padding-bottom: 20px;
+    }
+    #footer td
+    {
+        vertical-align: text-top;
+        font-family: "Josefin Sans";
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    #footer a
+    {
+        text-decoration: none;
+        color: #FAFDFF;
+    }
+
+
+    #footer ul
+    {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #footer li
+    {
+        padding-bottom: 20px;
+    }
+
+    /* DICE TIERS PROBLEMATIC*/
+
+    .image-container {
+        display: flex;
+        margin: 0 100px 0 100px;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .img-link {
+        display: block;
+        position: relative;
+        transition: transform 0.3s ease; /* Optional hover effect */
+    }
+
+    .img-1 {
+        z-index: 1; /* Sits behind */
+    }
+
+    .img-2 {
+        z-index: 2; /* Sits on top */
+        margin-left: -600px; /* Adjust this value to control overlap */
+    }
+
+    /* Optional: Bring image to front on hover */
+    .img-link:hover {
+        z-index: 3;
+        transform: scale(1.05);
+    }
+
+    .img-link img {
+        width: 800px; /* Set desired size */
+        height: auto;
+        border: 3px solid white;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+
+    /* Calendar */
+
+    .cal_nav 
+    {
+        margin: 0 0 15px 0;
+        background-color: #272727;
+    }
+
+    .cal_nav ul 
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 10px 0 10px 0;
+    }
+
+    .cal_nav li 
+    {
+        margin: 0 15px;
+        padding: 0 25px 0 25px;
+        background-color: #1C1C1C;
+        border-radius: 4px;
+    }
+
+    .cal_nav a 
+    {
+        color: #FAFDFF;
+        text-decoration: none;
+        padding: 15px 0;
+        display: block;
+    }
+
+    .cal_nav li:hover
+    {
+        background-color: #FAFDFF;
+        a{color: #1C1C1C;}
+    }
+
+    /* Calendar Display */
+
+    #calendar_title
+    {  
+        font-family: "Texturina";
+        font-weight: 600;
+        font-size: 50px;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto; 
+        text-align: left;
+        color: #FAFDFF;
+    }
+
+    .calendar 
+    {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto; 
+        border-collapse: collapse;
+        text-align: center;
+        font-family: "Josefin Sans";
+        font-weight: 600;
+        font-size: 25px;
+    }
+
+    .calendar th
+    {
+        border: none;
+        width: 14.28%;
+        height: 100px;
+        vertical-align: middle;
+        padding: 10px;
+        color: #FAFDFF;
+    }
+
+    .calendar td 
+    {
+        border: 2px solid #FAFDFF;
+        width: 14.28%; /* 7 columns = 100% */
+        height: 100px;
+        vertical-align: middle;
+        padding: 10px;
+        font-weight: 400;
+    }
+
+
+    .calendar td 
+    {
+        color: #FAFDFF;
+        transition: background-color 0.2s;
+    }
+
+    .calendar_dis 
+    {
+        background-color: #1C1C1C;
+        pointer-events: none;
+    }
+
+    .calendar td:not(:empty):hover 
+    {
+        background-color: #FAFDFF;
+        color:#1C1C1C;
+    }

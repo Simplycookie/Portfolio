@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DICE Club - Checkout</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="checkout.css">
+    <link href="https://fonts.googleapis.com/css2?family=Texturina:wght@700&family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">D.I.C.E.</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <button class="cart-icon-btn" id="cartIconBtn">
+                    🛒 <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <div id="authStateButton"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="checkout-container">
+        <div class="page-header">
+            <h1>Event Booking</h1>
+            <p>Complete your booking by providing your details and selecting your preferred date and time.</p>
+        </div>
+
+        <!-- BOOKING STEPS-->
+        <div class="booking-steps">
+            <div class="step active">
+                <div class="step-number">1</div>
+                <div class="step-title">Booking Details</div>
+            </div>
+            <div class="step-line"></div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-title">Payment</div>
+            </div>
+            <div class="step-line"></div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-title">Confirmation</div>
+            </div>
+        </div>
+
+        <div class="booking-form-container">
+            <div class="booking-form-section">
+                <!-- INFO SETAILS -->
+                <div class="section-header">
+                    <h2>Personal Information</h2>
+                    <p>Please provide your personal details for the booking.</p>
+                </div>
+
+                <!-- LOG IN NOTIFICATION(IF NO LOG IN) -->
+                <div class="login-prompt" id="loginPrompt" style="display: none;">
+                    <p>Please register or login to continue</p>
+                    <div class="auth-buttons">
+                        <a href="registerrpage.php" class="btn-register">Register</a>
+                        <a href="loginpage.html" class="btn-login">Login</a>
+                    </div>
+                </div>
+
+                <!-- INFO DISPLAY（IF ALREADY LOG IN） -->
+                <div class="user-info-display" id="userInfoDisplay" style="display: none;">
+                    <h3>Your Information</h3>
+                    <div class="user-info-row">
+                        <div class="user-info-label">Full Name:</div>
+                        <div class="user-info-value" id="userFullName"></div>
+                    </div>
+                    <div class="user-info-row">
+                        <div class="user-info-label">Email Address:</div>
+                        <div class="user-info-value" id="userEmail"></div>
+                    </div>
+                    <div class="user-info-row">
+                        <div class="user-info-label">Phone Number:</div>
+                        <div class="user-info-value" id="userPhone"></div>
+                    </div>
+                </div>
+
+                <!-- INFO DISPLAY（IF NO LOG IN） -->
+                <form id="guestInfoForm" style="display: none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="guestFullName">Full Name *</label>
+                            <input type="text" id="guestFullName" name="guestFullName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guestEmail">Email Address *</label>
+                            <input type="email" id="guestEmail" name="guestEmail" placeholder="johndoe@gmail.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="guestPhone">Phone Number *</label>
+                        <input type="tel" id="guestPhone" name="guestPhone" placeholder="+60 12 345 6789" required>
+                    </div>
+                </form>
+
+                <div class="section-divider"></div>
+
+                <!-- BOOKING DETAILS -->
+                <div class="section-header">
+                    <h2>Booking Details</h2>
+                    <p>Select your preferred date, time, and number of attendees.</p>
+                </div>
+
+                <div class="date-time-row">
+                    <div class="form-group">
+                        <label for="bookingDate">Date *</label>
+                        <select id="bookingDate" name="bookingDate" required>
+                            <option value="">Select Date</option>
+                            <option value="2026-01-31">31 January 2026</option>
+                            <option value="2026-02-07">7 February 2026</option>
+                            <option value="2026-02-14">14 February 2026</option>
+                            <option value="2026-02-21">21 February 2026</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingTimeStart">Start Time *</label>
+                        <select id="bookingTimeStart" name="bookingTimeStart" required>
+                            <option value="">Select Time</option>
+                            <option value="08:00">8:00 AM</option>
+                            <option value="09:00">9:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="14:00">2:00 PM</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingTimeEnd">End Time *</label>
+                        <select id="bookingTimeEnd" name="bookingTimeEnd" required>
+                            <option value="">Select Time</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="14:00">2:00 PM</option>
+                            <option value="15:00">3:00 PM</option>
+                            <option value="16:00">4:00 PM</option>
+                            <option value="17:00">5:00 PM</option>
+                            <option value="18:00">6:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookingPax">Number of People *</label>
+                    <select id="bookingPax" name="bookingPax" required>
+                        <option value="">Select</option>
+                        <option value="1">1 person</option>
+                        <option value="2">2 people</option>
+                        <option value="3">3 people</option>
+                        <option value="4">4 people</option>
+                        <option value="5">5 people</option>
+                        <option value="6">6 people</option>
+                        <option value="7">7 people</option>
+                        <option value="8">8 people</option>
+                        <option value="9">9 people</option>
+                        <option value="10">10 people</option>
+                    </select>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <!-- TERMS AND CONDITION -->
+                <div class="section-header">
+                    <h2>Terms & Conditions</h2>
+                    <p>Please read and agree to the following terms before proceeding.</p>
+                </div>
+
+                <div class="terms-checkbox">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="ageCheck" name="ageCheck" required>
+                        <label for="ageCheck">I am 18 years old and above</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="guardianCheck" name="guardianCheck">
+                        <label for="guardianCheck">I am below the age of 18, and the consent form has been completed by my guardian</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="discordCheck" name="discordCheck" required>
+                        <label for="discordCheck">I have joined the D.I.C.E. MMU Discord server</label>
+                    </div>
+                </div>
+
+                <!-- BOOKING BUTTON -->
+                <div class="booking-actions">
+                    <a href="cart.html" class="btn-back">Back to Cart</a>
+                    <button type="button" class="btn-submit-booking" id="submitBooking" onclick="handleBookingSubmit(event)">Proceed to Payment</button>
+                </div>
+            </div>
+
+            <div class="booking-summary">
+                <div class="summary-header">
+                    <h2>Booking Summary</h2>
+                </div>
+                <div class="summary-item">
+                    <h3 style="color: #FAFDFF; margin-bottom: 15px; font-family: 'Texturina', serif;">Game Design Workshop</h3>
+                    <div class="summary-row">
+                        <div class="summary-label">Date</div>
+                        <div class="summary-value" id="summaryDate">None Selected</div>
+                    </div>
+                    <div class="summary-row">
+                        <div class="summary-label">Time</div>
+                        <div class="summary-value" id="summaryTime">Start - End</div>
+                    </div>
+                    <div class="summary-row">
+                        <div class="summary-label">Number of People</div>
+                        <div class="summary-value" id="summaryPax">Not selected</div>
+                    </div>
+                    <div class="summary-row">
+                        <div class="summary-label">Location</div>
+                        <div class="summary-value">MMU Faculty of Artificial Intelligence and Engineering (FAIE), CLCR 3044</div>
+                    </div>
+                </div>
+                <div class="summary-item">
+                    <h3 style="color: #FAFDFF; margin-bottom: 15px; font-family: 'Texturina', serif;">Price Details</h3>
+                    <div class="summary-row">
+                        <div class="summary-label">Ticket Price (x1)</div>
+                        <div class="summary-value">RM 30.00</div>
+                    </div>
+                    <div class="summary-row">
+                        <div class="summary-label">Processing Fee</div>
+                        <div class="summary-value">RM 2.00</div>
+                    </div>
+                    <div class="summary-row">
+                        <div class="summary-label">Quantity</div>
+                        <div class="summary-value" id="summaryQuantity">1</div>
+                    </div>
+                </div>
+                <div class="summary-total">
+                    <div class="summary-row">
+                        <div class="summary-label">Total Amount</div>
+                        <div class="summary-value" id="summaryTotal">RM 32.00</div>
+                    </div>
+                </div>
+                <div class="important-notice">
+                    <p><strong>Note:</strong> You will receive a confirmation email with all booking details after payment is completed.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+
+        <!--FOOTER-->
+
+    </div>
+    <footer class="footer">
+        <p>&copy; 2026 D.I.C.E. MMU | Dive into Imagination for Creative Entertainment</p>
+        <div class="social-links">
+            <a href="#">Instagram</a> |
+            <a href="#">Discord</a> |
+            <a href="#">Email</a>
+        </div>
+    </footer>
+
+    <script src="auth-state.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        (function() {
+            "use strict";
+
+            // ========== MAIN PAGE INITALIZE=========
+            function initPage() {
+                var currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+                var users = JSON.parse(localStorage.getItem('users') || '[]');
+                var loginPrompt = document.getElementById('loginPrompt');
+                var userInfoDisplay = document.getElementById('userInfoDisplay');
+                var guestInfoForm = document.getElementById('guestInfoForm');
+
+                var isLoggedIn = false;
+                if (currentUser) {
+                    for (var i = 0; i < users.length; i++) {
+                        if (users[i].email === currentUser.email) {
+                            isLoggedIn = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (isLoggedIn) {
+                    loginPrompt.style.display = 'none';
+                    userInfoDisplay.style.display = 'block';
+                    guestInfoForm.style.display = 'none';
+
+                    document.getElementById('userFullName').textContent = currentUser.fullName || 'Not provided';
+                    document.getElementById('userEmail').textContent = currentUser.email || 'Not provided';
+
+                    // CHECCK USER PHONE FROM USERS LIST
+                    var userData = null;
+                    for (var j = 0; j < users.length; j++) {
+                        if (users[j].email === currentUser.email) {
+                            userData = users[j];
+                            break;
+                        }
+                    }
+                    var phone = (userData && userData.phone) ? userData.phone : 'Not provided';
+                    document.getElementById('userPhone').textContent = phone;
+                } else {
+                    loginPrompt.style.display = 'block';
+                    userInfoDisplay.style.display = 'none';
+                    guestInfoForm.style.display = 'block';
+                }
+
+                function updateBookingSummary() {
+                    var dateSelect = document.getElementById('bookingDate');
+                    var timeStart = document.getElementById('bookingTimeStart');
+                    var timeEnd = document.getElementById('bookingTimeEnd');
+                    var paxSelect = document.getElementById('bookingPax');
+
+                    var summaryDate = document.getElementById('summaryDate');
+                    var summaryTime = document.getElementById('summaryTime');
+                    var summaryPax = document.getElementById('summaryPax');
+                    var summaryQuantity = document.getElementById('summaryQuantity');
+                    var summaryTotal = document.getElementById('summaryTotal');
+
+                    // DATE
+                    if (dateSelect && dateSelect.value) {
+                        var date = new Date(dateSelect.value);
+                        var day = date.getDate();
+                        var month = date.toLocaleString('en-US', {
+                            month: 'long'
+                        });
+                        var year = date.getFullYear();
+                        summaryDate.textContent = day + ' ' + month + ' ' + year;
+                    } else {
+                        summaryDate.textContent = 'None Selected';
+                    }
+
+                    // TIME
+                    if (timeStart && timeStart.value && timeEnd && timeEnd.value) {
+                        function formatTime(t) {
+                            if (!t) return '';
+                            var parts = t.split(':');
+                            var hour = parseInt(parts[0], 10);
+                            var minute = parts[1] || '00';
+                            var suffix = hour >= 12 ? 'pm' : 'am';
+                            var hour12 = hour % 12;
+                            if (hour12 === 0) hour12 = 12;
+                            return hour12 + ':' + minute + ' ' + suffix;
+                        }
+                        summaryTime.textContent = formatTime(timeStart.value) + ' - ' + formatTime(timeEnd.value);
+                    } else {
+                        summaryTime.textContent = 'Start - End';
+                    }
+
+                    // QUANTITY & TOTAL
+                    if (paxSelect && paxSelect.value) {
+                        var pax = parseInt(paxSelect.value, 10);
+                        if (!isNaN(pax) && pax > 0) {
+                            summaryPax.textContent = pax + (pax === 1 ? ' person' : ' people');
+                            summaryQuantity.textContent = pax;
+                            var total = (30 * pax) + (2 * pax);
+                            summaryTotal.textContent = 'RM ' + total.toFixed(2);
+                        } else {
+                            summaryPax.textContent = 'Not selected';
+                            summaryQuantity.textContent = '1';
+                            summaryTotal.textContent = 'RM 32.00';
+                        }
+                    } else {
+                        summaryPax.textContent = 'Not selected';
+                        summaryQuantity.textContent = '1';
+                        summaryTotal.textContent = 'RM 32.00';
+                    }
+                }
+
+                var bookingDate = document.getElementById('bookingDate');
+                var bookingTimeStart = document.getElementById('bookingTimeStart');
+                var bookingTimeEnd = document.getElementById('bookingTimeEnd');
+                var bookingPax = document.getElementById('bookingPax');
+
+                if (bookingDate) bookingDate.addEventListener('change', updateBookingSummary);
+                if (bookingTimeStart) bookingTimeStart.addEventListener('change', updateBookingSummary);
+                if (bookingTimeEnd) bookingTimeEnd.addEventListener('change', updateBookingSummary);
+                if (bookingPax) bookingPax.addEventListener('change', updateBookingSummary);
+                updateBookingSummary();
+
+                // SHOPING CART UPDATE
+                var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                var totalItems = 0;
+                for (var k = 0; k < cart.length; k++) {
+                    totalItems += (cart[k].quantity || 0);
+                }
+                var cartCount = document.getElementById('cartCount');
+                if (cartCount) {
+                    cartCount.textContent = totalItems;
+                    cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+                }
+            }
+
+            window.handleBookingSubmit = function(e) {
+                if (e) e.preventDefault();
+
+                // GET USER DATA
+                var currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+                var users = JSON.parse(localStorage.getItem('users') || '[]');
+
+                // GET USER LOGIN STATUS
+                if (!currentUser) {
+                    var guestFullNameEl = document.getElementById('guestFullName');
+                    var guestEmailEl = document.getElementById('guestEmail');
+                    var guestPhoneEl = document.getElementById('guestPhone');
+
+                    var gName = guestFullNameEl ? guestFullNameEl.value.trim() : '';
+                    var gEmail = guestEmailEl ? guestEmailEl.value.trim() : '';
+                    var gPhone = guestPhoneEl ? guestPhoneEl.value.trim() : '';
+
+                    if (!gName || !gEmail || !gPhone) {
+                        alert('Please fill in all required personal information or login to continue.');
+                        return;
+                    }
+                    // EMAIL 验证
+                    if (gEmail.indexOf('@') === -1 || gEmail.indexOf('.') === -1) {
+                        alert('Please enter a valid email address.');
+                        return;
+                    }
+                }
+
+                // booking验证
+                var bookingDateEl = document.getElementById('bookingDate');
+                var bookingTimeStartEl = document.getElementById('bookingTimeStart');
+                var bookingTimeEndEl = document.getElementById('bookingTimeEnd');
+                var bookingPaxEl = document.getElementById('bookingPax');
+
+                var dateVal = bookingDateEl ? bookingDateEl.value : '';
+                var startVal = bookingTimeStartEl ? bookingTimeStartEl.value : '';
+                var endVal = bookingTimeEndEl ? bookingTimeEndEl.value : '';
+                var paxVal = bookingPaxEl ? bookingPaxEl.value : '';
+
+                if (!dateVal || !startVal || !endVal || !paxVal) {
+                    alert('Please complete all booking details (date, time, number of people).');
+                    return;
+                }
+
+                // terms and conditions
+                var ageCheck = document.getElementById('ageCheck');
+                var guardianCheck = document.getElementById('guardianCheck');
+                var discordCheck = document.getElementById('discordCheck');
+
+                var ageChecked = ageCheck ? ageCheck.checked : false;
+                var guardianChecked = guardianCheck ? guardianCheck.checked : false;
+                var discordChecked = discordCheck ? discordCheck.checked : false;
+
+                if (!ageChecked && !guardianChecked) {
+                    alert('You must be 18+ OR have guardian consent to proceed.');
+                    return;
+                }
+                if (!discordChecked) {
+                    alert('You must join the D.I.C.E. MMU Discord server to book events.');
+                    return;
+                }
+
+                // money calculation
+                var pax = parseInt(paxVal, 10);
+                var totalAmount = (30 * pax) + (2 * pax);
+
+                // CREATE BOOKING DATA
+                var bookingData = {
+                    event: 'Game Design Workshop',
+                    date: dateVal,
+                    timeStart: startVal,
+                    timeEnd: endVal,
+                    pax: pax,
+                    location: 'MMU Faculty of Artificial Intelligence and Engineering (FAIE), CLCR 3044',
+                    pricePerPerson: 30,
+                    processingFee: 2,
+                    total: totalAmount,
+                    timestamp: new Date().toISOString()
+                };
+
+                if (currentUser) {
+
+                    var fullUserData = null;
+                    for (var m = 0; m < users.length; m++) {
+                        if (users[m].email === currentUser.email) {
+                            fullUserData = users[m];
+                            break;
+                        }
+                    }
+                    fullUserData = fullUserData || {};
+                    bookingData.user = {
+                        fullName: currentUser.fullName || 'User',
+                        email: currentUser.email,
+                        phone: fullUserData.phone || 'Not provided'
+                    };
+                } else {
+                    var guestFullNameEl = document.getElementById('guestFullName');
+                    var guestEmailEl = document.getElementById('guestEmail');
+                    var guestPhoneEl = document.getElementById('guestPhone');
+
+                    bookingData.user = {
+                        fullName: guestFullNameEl ? guestFullNameEl.value.trim() : '',
+                        email: guestEmailEl ? guestEmailEl.value.trim() : '',
+                        phone: guestPhoneEl ? guestPhoneEl.value.trim() : ''
+                    };
+                }
+
+                // save and go to payment page
+                localStorage.setItem('currentBooking', JSON.stringify(bookingData));
+                window.location.href = 'payment.html';
+            };
+
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initPage);
+            } else {
+                initPage();
+            }
+        })();
+    </script>
+</body>
+
+</html>

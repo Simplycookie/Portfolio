@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head><title>Lab 8</title>
+
+<script type="text/javascript">
+
+
+</script>
+
+</head>
+
+<body>
+
+<h3>Book A Movie Ticket</h3>
+<p>Choose your movie and add-on</p>
+
+<form name="ticketfrm">
+
+	<p>Movie Title:
+		<select name="mov_code">
+			<option value="M1">Jumanji (RM 12.90)</option>
+			<option value="M2">Coco (RM 10.50)</option>
+			<option value="M3">Blade Runner (RM 9.30)</option>
+			<option value="M4">The Foreigner (RM 12.80)</option>
+			
+		</select>
+	<p>Adult : <input type="number" name="adult_qty" min="1" max="10" /></p>
+	
+	<p>Child : <input type="number" name="child_qty" min="0" max="10" /></p>
+	
+	<p>Add-Ons:
+	<input type="checkbox" name="add_on_code" value="A1">Popcorn (RM 7.90)
+	<input type="checkbox" name="add_on_code" value="A2">Nachos (RM 5.50)
+	<input type="checkbox" name="add_on_code" value="A3">Soda (RM 3.50)
+	</p>
+
+	<p><input type="button" name="buybtn" value="Buy Now" onclick="get_data();" />
+
+</form>
+
+
+</body>
+
+</html>

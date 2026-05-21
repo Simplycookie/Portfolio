@@ -1,0 +1,86 @@
+/* BOARDGAMES DAY PAGE*/
+
+/*EVENTS ABOUT */
+.events-detail-container 
+{
+    display: flex;
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.detail-image 
+{
+    width: 35%;
+    min-width: 300px;
+    margin-bottom: 20px;
+}
+
+.detail-right 
+{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    min-width: 200px;
+}
+
+.detail-calendar 
+{
+    width: auto;
+    height: 40px;
+    background-color: #E4E9EC;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    text-align: right;
+    color: #1C1C1C;
+    font-weight: 600;
+    font-size:18px;
+}
+
+
+/* DICE TIERS PROBLEMATIC*/
+
+.image-container {
+    display: flex;
+    margin: 0 100px 0 100px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.img-link {
+    display: block;
+    position: relative;
+    transition: transform 0.3s ease; /* Optional hover effect */
+}
+
+.img-1 {
+    z-index: 1; /* Sits behind */
+}
+
+.img-2 {
+    z-index: 2; /* Sits on top */
+    margin-left: -600px; /* Adjust this value to control overlap */
+}
+
+/* Optional: Bring image to front on hover */
+.img-link:hover {
+    z-index: 3;
+    transform: scale(1.05);
+}
+
+.img-link img {
+    width: 800px; /* Set desired size */
+    height: auto;
+    border: 3px solid white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}

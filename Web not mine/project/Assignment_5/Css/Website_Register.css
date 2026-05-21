@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#main{
+    width: 400px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.bar {
+    position: relative;
+    left: -8%;
+    height:15px;
+    width: 110%;
+    padding: 10px;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid black;
+    margin: 10px -10;
+}
+
+form{
+    text-align: center;
+}

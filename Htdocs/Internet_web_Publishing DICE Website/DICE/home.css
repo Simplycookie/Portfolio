@@ -1,0 +1,171 @@
+/* HOME */
+
+/* ABOUT SECTION */
+.about-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about_text {
+    flex: 1 1 60%;
+    min-width: 300px;
+}
+
+.about_image {
+    flex: 1 1 35%;
+    text-align: right;
+    min-width: 200px;
+}
+
+.about_image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* FEATURED EVENTS SECTION */
+.featured-container {
+    margin-bottom: 15px;
+    background-color: #272727;
+    color: #FAFDFF;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* EVENTS BY DICE SECTION */
+
+.events-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.event-card {
+    width: 400px;
+    padding: 40px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #B4B6B9;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+    text-align: left;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 550px
+}
+
+.event-card:hover {
+    transform: translateY(-30px);
+    box-shadow: 0 15px 15px #1C1C1C;
+}
+
+.event-image {
+    width: 300px;
+    display: block;
+    margin: 0 auto 20px auto;
+    object-fit: cover;
+}
+
+
+
+.event-title {
+    height: fit-content;
+    display: flex;
+    align-content: flex-start;
+    justify-content: flex-start;
+    color: #1C1C1C;
+    line-height: 1.2;
+    margin-top: 28px;
+    margin-bottom: 28px;
+
+}
+
+.event-title h3 {
+    margin: 0;
+}
+
+.event-content {
+    display: flex;
+    flex-grow: 8;
+    flex-direction: column;
+    justify-self: flex-end;
+    justify-content: flex-end;
+}
+
+.event-description {
+    color: #272727;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #272727;
+}
+
+.event-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+}
+
+.event-action-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #272727;
+    border-radius: 5px;
+    padding: 8px 20px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #E4E9EC;
+}
+
+.event-action-button .dice-idle {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.event-action-button .dice-hover {
+    display: none;
+}
+
+.event-action-button:hover {
+    background-color: #E4E9EC;
+    color: #272727;
+}
+
+.event-action-button:hover .dice-idle {
+    display: none;
+}
+
+.event-action-button:hover .dice-hover {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* CLUB REGISTRATION */
+
+#dice_registration {
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dice_registration img {
+    width: 700px;
+    height: auto;
+}

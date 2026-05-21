@@ -1,0 +1,364 @@
+/* External CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #0d3b66;
+    color: white;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 10px;
+    color: #f95738;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.nav-links a:hover {
+    color: #f95738;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links a.active {
+    color: #f95738;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-login, .btn-register {
+    padding: 8px 20px !important;
+    border-radius: 20px !important;
+}
+
+.btn-login {
+    border: 2px solid #f95738;
+}
+
+.btn-register {
+    background-color: #f95738;
+}
+
+.btn-register:hover {
+    background-color: #e04e32;
+}
+
+/* Buttons */
+.cta-button {
+    display: inline-block;
+    background-color: #f95738;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    margin: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e04e32;
+    transform: translateY(-3px);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    border: 2px solid white;
+}
+
+.cta-button.secondary:hover {
+    background-color: white;
+    color: #0d3b66;
+}
+
+/* Event Cards */
+.upcoming-events {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.upcoming-events h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #0d3b66;
+    font-size: 2.5em;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.event-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.event-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-info {
+    padding: 20px;
+}
+
+.event-info h3 {
+    color: #0d3b66;
+    margin-bottom: 10px;
+}
+
+.event-info p {
+    color: #666;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.event-info i {
+    margin-right: 8px;
+    color: #f95738;
+}
+
+.btn-details {
+    display: inline-block;
+    background-color: #0d3b66;
+    color: white;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-details:hover {
+    background-color: #f95738;
+}
+
+/* Footer */
+footer {
+    background-color: #0d3b66;
+    color: white;
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    color: #f95738;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #f95738;
+}
+
+.footer-section p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-section i {
+    margin-right: 10px;
+    width: 20px;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+/* Form Styles */
+.form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #0d3b66;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1em;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #f95738;
+}
+
+.btn-submit {
+    background-color: #f95738;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #e04e32;
+}
+
+/* Table Styles */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+    background-color: #0d3b66;
+    color: white;
+    font-weight: 600;
+}
+
+.data-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+    }
+    
+    .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-links li {
+        margin: 5px 10px;
+    }
+    
+    .hero-banner h1 {
+        font-size: 2.5em;
+    }
+}

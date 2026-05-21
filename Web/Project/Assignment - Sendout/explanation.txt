@@ -1,0 +1,5 @@
+dashboard
+// for looking to the profile details ,
+
+review
+// comment and rating for the events 
