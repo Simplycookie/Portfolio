@@ -1,0 +1,14 @@
+1 Nasi Goreng / 7.00 true
+1 Mee Goreng Ayam / 8.00 true
+1 Nasi Lemak Ayam / 8.50 false
+1 Mee Rebus Special / 7.80 false
+1 Kuey Teow Goreng / 7.50 false
+1 Nasi Ayam Penyet / 9.00 true
+1 Mee Kari / 7.20 false
+1 Nasi Tomato Daging / 8.70 true
+1 Nasi Goreng Kampung / 7.90 true
+1 Bihun Sup Utara / 7.30 false
+1 Nasi Daging Merah / 8.60 true
+1 Lontong Special / 7.00 false
+1 Nasi Kandar Ayam / 9.20 false
+1 Mee Bandung Muar / 8.40 false

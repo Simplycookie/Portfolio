@@ -1,0 +1,13 @@
+1 Purple lover / 3.00 5.00 0.00
+1 lala Lander / 4.00 6.00 8.00
+1 orange Juice / 2.50 3.00 0.00
+1 Berry Blast / 3.50 5.00 6.50
+1 Tropical Twist / 4.00 5.50 0.00
+1 Green Power / 3.25 4.75 6.00
+1 Mango Mania / 2.80 3.60 0.00
+1 Citrus Rush / 3.00 4.50 5.50
+1 Pineapple Express / 3.75 5.25 6.75
+1 Watermelon Wave / 2.90 4.00 0.00
+1 Dragonfruit Dream / 4.50 6.00 7.25
+1 Apple Zing / 2.60 3.50 4.25
+1 Kiwi Cooler / 3.10 4.00 0.00

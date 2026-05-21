@@ -1,0 +1,8 @@
+1 Coco-cola / 2.50 3.00 0.00
+1 Diet Coco-cola / 2.50 3.00 0.00
+1 Pepsi / 2.50 3.00 0.00
+1 Sprite / 2.40 2.90 0.00
+1 Fanta Grape / 2.60 3.10 0.00
+1 Mountain Dew / 2.70 3.20 0.00
+1 A&W Root Beer / 2.80 3.30 0.00
+1 100 Plus / 2.50 3.00 0.00
