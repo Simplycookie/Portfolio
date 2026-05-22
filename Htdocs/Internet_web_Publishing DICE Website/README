@@ -1,0 +1,2 @@
+this SQL is exported through phpmyadmin.
+you must first make a new database named "dice_eea" and Import the SQL into the database
