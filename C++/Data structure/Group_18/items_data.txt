@@ -2,9 +2,10 @@ Applepie_Slice 4 11
 Applepie 15 1
 Chocolete_Muffin 5 5
 Donut 3.5 10
+Juice 3 15
 Lemon_Cheesecake 16 5
 Muffin 5 7
 Peanuts 3 25
 Strawberry_Donut 4 8
-Vanilla_Cake 13 4
 Super_Vanilla_Muffin 7 8
+Vanilla_Cake 13 4
